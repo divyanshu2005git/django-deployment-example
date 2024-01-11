@@ -1,0 +1,38 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>demo</title>
+    <link rel = "stylesheet" href = "{% static "css/myStyles.css" %}"/>
+  </head>
+  <body>
+    <div>
+    <h1>Hi , welcome</h1>
+    <h2>here are your access records</h2>
+    <img src = "{% static "images/laptop.jpg" %}" alt="oh can't show image">
+    <div class="djangotwo">
+      {% if access_records %}
+        <table>
+          <thead>
+            <th>Site Name</th>
+            <th>Date Accessed</th>
+          </thead>
+          {%for acc in access_records%}
+        <tr>
+          <td>{{acc.name}}</td>
+          <td>{{acc.date}}</td>
+        </tr>
+        {%endfor%}
+        </table>
+        {% else %}
+        <p>no records </p>
+        {% endif %}
+    </div>
+    <a class="icon-link" href="first_app/form">
+      <svg class="bi" aria-hidden="true"><use xlink:href="#box-seam"></use></svg>
+      Fill the Form HERE!!!
+    </a>
+  </div>
+  </body>
+</html>
